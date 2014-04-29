@@ -56,12 +56,25 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
                         "       {\"name\":\"dojo\",\"location\":\"//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo\"},\n".
                         "       {\"name\":\"dijit\",\"location\":\"//ajax.googleapis.com/ajax/libs/dojo/1.8/dijit\"}\n".
                         "   ]\n".
-                        "};",);
+                        "};\n",);
         $event->data["script"][] = array (
                 "type" => "text/javascript",
                 "charset" => "utf-8",
                 "_data" => "",
                 "src" =>  $this->getConf('dojo_url'),);
+        $event->data["script"][] = array (
+                "type" => "text/javascript",
+                "charset" => "utf-8",
+                "_data" => "require([".
+                                "\"dojo/query\"".
+                                ",\"dojo/NodeList-dom\"".
+                                ",\"dojo/domReady!\"".
+                            "], \n".
+                            "function(query){\n".
+                            "   query('body').addClass(\"".
+                                           $this->getConf('dojo_theme')."\");\n".
+                            "});\n",
+        );
     }
 }        
 
