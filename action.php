@@ -9,6 +9,7 @@ if (!defined('DOKU_INC')) die();
 if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 require_once(DOKU_PLUGIN.'action.php');
 require_once(DOKU_PLUGIN.'ownInit/init.php');
+require_once(DOKU_INC.'inc/common.php');
 
 class action_plugin_ownInit extends DokuWiki_Action_Plugin {
     function register(&$controller) {
@@ -51,11 +52,12 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
                         "   async:true,\n".
                         "   baseUrl: '/iocjslib/',\n".
                         "   tlmSiblingOfDojo: false,\n".
+                        "   locale: \"".hsc($conf["lang"])."\",\n". 
                         "   packages: [\n".
                         "       {\"name\":\"ioc\",\"location\":\"/iocjslib/ioc\"},\n".
                         "       {\"name\":\"dojo\",\"location\":\"".$this->getConf('dojo_url_base')."dojo\"},\n".
-                        "       {\"name\":\"dijit\",\"location\":\"".$this->getConf('dojo_url_base')."dijit\"}\n".
-                        "       {\"name\":\"dijox\",\"location\":\"".$this->getConf('dojo_url_base')."dijox\"}\n".
+                        "       {\"name\":\"dijit\",\"location\":\"".$this->getConf('dojo_url_base')."dijit\"},\n".
+                        "       {\"name\":\"dojox\",\"location\":\"".$this->getConf('dojo_url_base')."dojox\"}\n".
                         "   ]\n".
                         "};\n",);
         $event->data["script"][] = array (
