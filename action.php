@@ -55,6 +55,7 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
                         "       {\"name\":\"ioc\",\"location\":\"/iocjslib/ioc\"},\n".
                         "       {\"name\":\"dojo\",\"location\":\"".$this->getConf('dojo_url_base')."dojo\"},\n".
                         "       {\"name\":\"dijit\",\"location\":\"".$this->getConf('dojo_url_base')."dijit\"}\n".
+                        "       {\"name\":\"dijox\",\"location\":\"".$this->getConf('dojo_url_base')."dijox\"}\n".
                         "   ]\n".
                         "};\n",);
         $event->data["script"][] = array (
