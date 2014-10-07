@@ -32,6 +32,7 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
     }
     
     private function loaddojo(&$event) {
+        global $conf;
         global $INFO;
         if(isset($INFO["isDojoLoaded"])&& $INFO["isDojoLoaded"]){
             return;
