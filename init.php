@@ -18,16 +18,16 @@ function own_init(){
         $INFO['isnsmanager'] = in_array($ownConfigLoaded['ns_manager_grp'], 
                                         $USERINFO['grps']);        
     }
-    $conf['dojo_theme']=$ownConfigLoaded['dojo_theme'];
-    $JSINFO['dojo_theme']=  $ownConfigLoaded['dojo_theme'];
+//    $conf['dojo_theme']=$ownConfigLoaded['dojo_theme'];
+//    $JSINFO['dojo_theme']=  $ownConfigLoaded['dojo_theme'];
     $conf['sectokParamName']=$ownConfigLoaded['sectokParamName'];
     $JSINFO['sectokParamName']=$ownConfigLoaded['sectokParamName'];
     $conf['storeDataParamName']=$ownConfigLoaded['storeDataParamName'];
     $JSINFO['storeDataParamName'] = $ownConfigLoaded['storeDataParamName'];
-    $conf['nsTree_html_id']=$ownConfigLoaded['nsTree_html_id'];
-    $JSINFO['nsTree']['html_id']= $ownConfigLoaded['nsTree_html_id'];
-    $conf['nsTree_html_id']=$ownConfigLoaded['nsTree_html_id'];
-    $JSINFO['nsTree']['html_id']=$ownConfigLoaded['nsTree_html_id'];
+//    $conf['nsTree_html_id']=$ownConfigLoaded['nsTree_html_id'];
+//    $JSINFO['nsTree']['html_id']= $ownConfigLoaded['nsTree_html_id'];
+//    $conf['nsTree_html_id']=$ownConfigLoaded['nsTree_html_id'];
+//    $JSINFO['nsTree']['html_id']=$ownConfigLoaded['nsTree_html_id'];
 }
 
 function setOwnConfig(& $ownConfigLoaded){
