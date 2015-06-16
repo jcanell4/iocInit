@@ -45,7 +45,32 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
                                               .'/'.$this->getConf('dojo_theme')
                                               .'.css', 
                                     "media" => "screen");
-        $event->data["script"][] = array( 
+        $item0 = $event->data["script"][0];
+        $item1 = $event->data["script"][1];
+        
+        
+        $event->data["script"][0] = array (
+                                        "type" => "text/javascript",
+                                        "charset" => "utf-8",
+                                        "_data" => "",
+                                        "src" =>  $this->getConf('dojo_url'),
+        );        
+
+        $event->data["script"][1] = array (
+                "type" => "text/javascript",
+                "charset" => "utf-8",
+                "_data" => "require([".
+                                "\"dojo/query\"".
+                                ",\"dojo/NodeList-dom\"".
+                                ",\"dojo/domReady!\"".
+                            "], \n".
+                            "function(query){\n".
+                            "   query('body').addClass(\"".
+                                           $this->getConf('dojo_theme')."\");\n".
+                            "});\n",
+        );
+        
+        array_unshift($event->data["script"], array( 
                 "type" => "text/javascript",
                 "charset" => "utf-8",
                 "_data" => "var dojoConfig = {\n".
@@ -60,25 +85,9 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
                         "       {\"name\":\"dijit\",\"location\":\"".$this->getConf('dojo_url_base')."dijit\"},\n".
                         "       {\"name\":\"dojox\",\"location\":\"".$this->getConf('dojo_url_base')."dojox\"}\n".
                         "   ]\n".
-                        "};\n",);
-        $event->data["script"][] = array (
-                "type" => "text/javascript",
-                "charset" => "utf-8",
-                "_data" => "",
-                "src" =>  $this->getConf('dojo_url'),);
-        $event->data["script"][] = array (
-                "type" => "text/javascript",
-                "charset" => "utf-8",
-                "_data" => "require([".
-                                "\"dojo/query\"".
-                                ",\"dojo/NodeList-dom\"".
-                                ",\"dojo/domReady!\"".
-                            "], \n".
-                            "function(query){\n".
-                            "   query('body').addClass(\"".
-                                           $this->getConf('dojo_theme')."\");\n".
-                            "});\n",
-        );
+                        "};\n",));             
+        array_unshift($event->data["script"], $item1);
+        array_unshift($event->data["script"], $item0);
     }
 }        
 
