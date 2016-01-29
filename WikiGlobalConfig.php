@@ -1,10 +1,8 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+if (!defined('DOKU_INC')) die();
+if (!defined('DOKU_PLUGIN'))    define("DOKU_PLUGIN", DOKU_INC."lib/plugins/");
+require_once(DOKU_INC . 'inc/init.php');
 
 /**
  * Description of WikiGlobalConfig
@@ -12,28 +10,8 @@
  * @author josep
  */
 class WikiGlobalConfig {
-    private static $instance=NULL;
-    private $langLoaded;
-    private $confLoaded;
-    private $pluginsConfLoaded;
-    private $pluginsLangLoaded;
-    
-    private function __construct() {
-        $this->langLoaded=FALSE;
-        $this->confLoaded=FALSE;
-        $this->pluginsConfLoaded = array();
-        $this->pluginsLangLoaded = array();
-    }
-    
-    private static function instance(){
-        if(!self::$instance){
-            self::$instance= new WikiGlobalConfig();
-        }
-    }
-    
-    private function tplIncDir() {
+    public static function tplIncDir() {
             global $conf;
-            $this->loadConf();
             
             if ( is_callable( 'tpl_incdir' ) ) {
                     $ret = tpl_incdir();
@@ -44,12 +22,31 @@ class WikiGlobalConfig {
             return $ret;
     }
     
-    private function loadConf($tpl, $plugin=array()){
-        if(!$this->confLoaded){
-            //LOAD
-            $this->confLoaded=TRUE;
+    public static function getConf($key, $plugin=""){
+        global $conf;
+        if(!empty($plugin)){
+            if(!isset($conf['plugin'][$plugin])){
+                $conf['plugin'][$plugin] = self::loadPluginConf($plugin);
+            }
+            $ret = $conf['plugin'][$plugin][$key];
+        }else{
+            $ret = $conf[$key];
         }
+        return $ret;
     }
+    
+    private static function loadPluginConf($plugin){
+        $path = DOKU_PLUGIN.$plugin.'/conf/';
+        $conf = array();
+
+        if (@file_exists($path.'default.php')) {
+            include($path.'default.php');
+        }
+
+        return $conf;
+        
+    }
+    
     
     private function loadlang($tpl, $plugin=array()){
         if(!$this->confLoaded){
