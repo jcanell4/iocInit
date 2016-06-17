@@ -27,6 +27,8 @@ class WikiGlobalConfig {
         if (!empty($plugin)){
             if (!isset($conf['plugin'][$plugin])){
                 $conf['plugin'][$plugin] = self::loadPluginConf($plugin);
+            }elseif(!isset($conf['plugin'][$plugin][$key])){
+                $conf['plugin'][$plugin] = array_merge(self::loadPluginConf($plugin), $conf['plugin'][$plugin]);
             }
             $ret = $conf['plugin'][$plugin][$key];
         }else {

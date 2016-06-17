@@ -1,4 +1,5 @@
 <?php
+if (!defined('DOKU_INC')) die();
 
 function own_init(){
     global $INFO;
@@ -14,11 +15,17 @@ function own_init(){
         $INFO['isnsmanager'] = in_array($ownConfigLoaded['ns_manager_grp'], 
                                         $USERINFO['grps']);        
     }
+    $conf = array_merge($conf, $ownConfigLoaded);
+    
+    if(!isset($conf["notificationdir"])){
+        $conf["notificationdir"]=fullpath(DOKU_INC.$conf['savedir'].'/'."notifications");
+    }
+    
 //    $conf['dojo_theme']=$ownConfigLoaded['dojo_theme'];
 //    $JSINFO['dojo_theme']=  $ownConfigLoaded['dojo_theme'];
-    $conf['sectokParamName']=$ownConfigLoaded['sectokParamName'];
+//    $conf['sectokParamName']=$ownConfigLoaded['sectokParamName'];
     $JSINFO['sectokParamName']=$ownConfigLoaded['sectokParamName'];
-    $conf['storeDataParamName']=$ownConfigLoaded['storeDataParamName'];
+//    $conf['storeDataParamName']=$ownConfigLoaded['storeDataParamName'];
     $JSINFO['storeDataParamName'] = $ownConfigLoaded['storeDataParamName'];
 //    $conf['nsTree_html_id']=$ownConfigLoaded['nsTree_html_id'];
 //    $JSINFO['nsTree']['html_id']= $ownConfigLoaded['nsTree_html_id'];
