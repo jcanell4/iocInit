@@ -13,3 +13,5 @@ $meta['ns_manager_grp'] = array('string');
 $meta['sectokParamName'] = array('string');
 $meta['nsTree_html_id'] = array('string');
 $meta['storeDataParamName'] = array('string');
+$meta['mdprojects'] = array('string');
+$meta['mdextension'] = array('string');

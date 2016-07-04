@@ -50,11 +50,11 @@ class WikiGlobalConfig {
     }
     
     
-    private function loadlang($tpl, $plugin=array()){
-        if(!$this->confLoaded){
-            //LOAD
-            $this->confLoaded=TRUE;
-        }
-    }
+//    private function loadlang($tpl, $plugin=array()){
+//        if(!$this->confLoaded){
+//            //LOAD
+//            $this->confLoaded=TRUE;
+//        }
+//    }
     
 }
