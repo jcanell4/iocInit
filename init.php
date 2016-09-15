@@ -19,6 +19,13 @@ function own_init(){
     
     if(!isset($conf["notificationdir"])){
         $conf["notificationdir"]=fullpath(DOKU_INC.$conf['savedir'].'/'."notifications");
+    }else{
+        $conf["notificationdir"]=fullpath(DOKU_INC.$conf['savedir'].'/'.$conf["notificationdir"]);
+    }
+    if(!isset($conf["mdprojects"])){
+        $conf["mdprojects"]=fullpath(DOKU_INC.$conf['savedir'].'/'."mdprojects");
+    }else{
+        $conf["mdprojects"]=fullpath(DOKU_INC.$conf['savedir'].'/'.$conf["mdprojects"]);
     }
     
 //    $conf['dojo_theme']=$ownConfigLoaded['dojo_theme'];

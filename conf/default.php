@@ -13,3 +13,5 @@ $conf['ns_manager_grp'] = "nsmanager";
 $conf['sectokParamName'] = "sectok";
 $conf['nsTree_html_id'] = "ns_tree";
 $conf['storeDataParamName'] = 'storeData';
+$conf['mdprojects'] = 'mdprojects';
+$conf['mdextension'] = 'mdpr';
