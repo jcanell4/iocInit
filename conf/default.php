@@ -15,3 +15,6 @@ $conf['nsTree_html_id'] = "ns_tree";
 $conf['storeDataParamName'] = 'storeData';
 $conf['mdprojects'] = 'mdprojects';
 $conf['mdextension'] = 'mdpr';
+$conf['autosaveTimer'] = 10*60; // Temps en s
+
+

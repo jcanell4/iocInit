@@ -1,7 +1,7 @@
 <?php
 if (!defined('DOKU_INC')) die();
 
-function own_init(){
+function own_init($plgName="ownInit"){
     global $INFO;
     global $USERINFO;
     global $JSINFO;
@@ -9,6 +9,7 @@ function own_init(){
     $ownConfigLoaded = array();
     
     setOwnConfig($ownConfigLoaded);
+    $ownConfigLoaded = array_merge($ownConfigLoaded, $conf["plugin"][$plgName]);
 
     if(isset($USERINFO) && isset($USERINFO['grps'])){
         $conf['ns_manager_grp']=$ownConfigLoaded['ns_manager_grp'];
@@ -41,7 +42,7 @@ function own_init(){
 }
 
 function setOwnConfig(& $ownConfigLoaded){
-        $conf = array();
+    $conf = array();
         $configFile = (dirname(__FILE__)).'/conf/default.php';
         if (@file_exists($configFile)) {
             include($configFile);

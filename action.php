@@ -18,7 +18,7 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
     }
 
     function init_ownInit(&$event, $param) {
-        own_init();
+        own_init($this->getPluginName());
     }
     
     function init_header_output(&$event, $param) {
