@@ -9,7 +9,9 @@ function own_init($plgName="ownInit"){
     $ownConfigLoaded = array();
     
     setOwnConfig($ownConfigLoaded);
-    $ownConfigLoaded = array_merge($ownConfigLoaded, $conf["plugin"][$plgName]);
+    if(isset($conf["plugin"][$plgName])){
+        $ownConfigLoaded = array_merge($ownConfigLoaded, $conf["plugin"][$plgName]);
+    }
 
     if(isset($USERINFO) && isset($USERINFO['grps'])){
         $conf['ns_manager_grp']=$ownConfigLoaded['ns_manager_grp'];
