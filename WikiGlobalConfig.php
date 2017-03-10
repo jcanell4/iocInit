@@ -31,6 +31,8 @@ class WikiGlobalConfig {
                 $conf['plugin'][$plugin] = array_merge(self::loadPluginConf($plugin), $conf['plugin'][$plugin]);
             }
             $ret = $conf['plugin'][$plugin][$key];
+        }else if(!isset ($conf[$key])) {
+            $ret = self::getConf($key, "owninit");
         }else {
             $ret = $conf[$key];
         }
