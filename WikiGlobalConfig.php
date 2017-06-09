@@ -32,7 +32,7 @@ class WikiGlobalConfig {
             }
             $ret = $conf['plugin'][$plugin][$key];
         }else if(!isset ($conf[$key])) {
-            $ret = self::getConf($key, "owninit");
+            $ret = self::getConf($key, "ownInit");
         }else {
             $ret = $conf[$key];
         }
