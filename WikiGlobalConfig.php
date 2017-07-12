@@ -10,10 +10,10 @@ require_once(DOKU_INC . 'inc/init.php');
  * @author josep
  */
 class WikiGlobalConfig {
-    
+
     public static function tplIncDir() {
         global $conf;
-            
+
         if (is_callable('tpl_incdir')) {
             $ret = tpl_incdir();
         }else {
@@ -21,7 +21,7 @@ class WikiGlobalConfig {
         }
         return $ret;
     }
-    
+
     public static function getConf($key, $plugin=""){
         global $conf;
         if (!empty($plugin)){
@@ -32,7 +32,7 @@ class WikiGlobalConfig {
             }
             $ret = $conf['plugin'][$plugin][$key];
         }else if(!isset ($conf[$key])) {
-            $ret = self::getConf($key, "owninit");
+            $ret = self::getConf($key, "ownInit");
         }else {
             $ret = $conf[$key];
         }
@@ -49,7 +49,7 @@ class WikiGlobalConfig {
 
         return $conf;
     }
-    
+
 //    private function loadlang($tpl, $plugin=array()){
 //        if(!$this->confLoaded){
 //            $this->confLoaded=TRUE;
