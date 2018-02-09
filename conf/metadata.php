@@ -1,7 +1,7 @@
 <?php
 /**
  * Options for the dokuwiki_ioc plugin
- * 
+ *
  * @author     Josep Cañellas <jcanell4@ioc.cat>
  */
 
@@ -15,4 +15,6 @@ $meta['nsTree_html_id'] = array('string');
 $meta['storeDataParamName'] = array('string');
 $meta['mdprojects'] = array('string');
 $meta['mdextension'] = array('string');
+$meta['metaprojectdir'] = array('string');
+$meta['revisionprojectdir'] = array('string');
 $meta['autosaveTimer'] = ['numeric'];
