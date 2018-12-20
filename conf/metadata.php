@@ -18,3 +18,7 @@ $meta['mdextension'] = array('string');
 $meta['metaprojectdir'] = array('string');
 $meta['revisionprojectdir'] = array('string');
 $meta['autosaveTimer'] = ['numeric'];
+
+$meta['_projectnames'] = array('fieldset');
+$meta['projectname_ptfploe']=array("string");
+$meta['projectname_ptfplogse']=array("string");
