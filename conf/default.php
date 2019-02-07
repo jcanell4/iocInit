@@ -21,6 +21,7 @@ $conf['autosaveTimer'] = 10*60; // Temps en s
 
 $conf['projectname_ptfploe']="pla de treball d'FP versió LOE";
 $conf['projectname_ptfplogse']="pla de treball d'FP versió LOGSE";
+$conf['projectname_manual']="Manuals de l'IOC";
 
 
 
