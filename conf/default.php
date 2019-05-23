@@ -25,7 +25,7 @@ $conf['projectname_fct']="pla de treball per la FCT";
 $conf['projectname_manual']="Manuals de l'IOC";
 $conf['projectname_guiesges']="Guies dels estudis GES";
 $conf['projectname_qdoc']="Documents bàsics de qualitat";
-$conf['projectname_eoi']="convocatòries EOI";
+$conf['projectname_convocatories_oficials_eoi']="Convocatòries EOI";
 
 
 
