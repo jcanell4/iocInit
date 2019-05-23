@@ -19,13 +19,13 @@ $conf['metaprojectdir'] = "project_meta";
 $conf['revisionprojectdir'] = "project_attic";
 $conf['autosaveTimer'] = 10*60; // Temps en s
 
-$conf['projectname_ptfploe']="pla de treball d'FP versió LOE";
-$conf['projectname_ptfplogse']="pla de treball d'FP versió LOGSE";
-$conf['projectname_fct']="pla de treball per la FCT";
+$conf['projectname_ptfploe']="Pla de treball d'FP versió LOE";
+$conf['projectname_ptfplogse']="Pla de treball d'FP versió LOGSE";
+$conf['projectname_ptfct']="Pla de treball per la FCT";
 $conf['projectname_manual']="Manuals de l'IOC";
 $conf['projectname_guiesges']="Guies dels estudis GES";
 $conf['projectname_qdoc']="Documents bàsics de qualitat";
-$conf['projectname_convocatories_oficials_eoi']="Convocatòries EOI";
+$conf['projectname_convocatoriesoficialseoi']="Convocatòries EOI";
 
 
 
