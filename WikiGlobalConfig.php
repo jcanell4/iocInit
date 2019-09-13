@@ -22,15 +22,27 @@ class WikiGlobalConfig {
         return $ret;
     }
 
-    public static function getConf($key, $plugin=""){
+    public static function getConf($key, $plugin="", $project=""){
         global $conf;
         if (!empty($plugin)){
-            if (!isset($conf['plugin'][$plugin])){
-                $conf['plugin'][$plugin] = self::loadPluginConf($plugin);
-            }elseif(!isset($conf['plugin'][$plugin][$key])){
-                $conf['plugin'][$plugin] = array_merge(self::loadPluginConf($plugin), $conf['plugin'][$plugin]);
+
+
+            if (!empty($project) && isset($conf['plugin'][$plugin])
+                && isset($conf['plugin'][$plugin]['project'])
+                && isset($conf['plugin'][$plugin]['project'][$project])) {
+                    // Retornem el valor del projecte
+                    $ret = $conf['plugin'][$plugin]['project'][$project][$key];
+
+            } else {
+                if (!isset($conf['plugin'][$plugin])){
+                    $conf['plugin'][$plugin] = self::loadPluginConf($plugin);
+                }elseif(!isset($conf['plugin'][$plugin][$key])){
+                    $conf['plugin'][$plugin] = array_merge(self::loadPluginConf($plugin), $conf['plugin'][$plugin]);
+                }
+
+                $ret = $conf['plugin'][$plugin][$key];
             }
-            $ret = $conf['plugin'][$plugin][$key];
+
         }else if(!isset ($conf[$key])) {
             $ret = self::getConf($key, "ownInit");
         }else {
