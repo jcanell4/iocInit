@@ -1,6 +1,6 @@
 <?php
 /**
- * @author     Josep Cañellas <jcanell4@ioc.cat>
+ * @author Josep Cañellas <jcanell4@ioc.cat>
  */
 if (!defined('DOKU_INC')) die();
 if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
@@ -24,7 +24,6 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
         //$this->loadjquery($event);
     }
 
-
     private function loadjquery(&$event) {
         //TO DO
     }
@@ -32,60 +31,52 @@ class action_plugin_ownInit extends DokuWiki_Action_Plugin {
     private function loaddojo(&$event) {
         global $conf;
         global $INFO;
-        if(isset($INFO["isDojoLoaded"])&& $INFO["isDojoLoaded"]){
+        if (isset($INFO["isDojoLoaded"]) && $INFO["isDojoLoaded"]) {
             return;
         }
+        $INFO["isDojoLoaded"] = true;
 
-        $INFO["isDojoLoaded"]=true;
         $event->data["link"][] = array ("rel" => "stylesheet",
-                                    "href" => $this->getConf('dojo_theme_base')
-                                              .$this->getConf('dojo_theme')
-                                              .'/'.$this->getConf('dojo_theme')
-                                              .'.css',
-                                    "media" => "screen");
-        $item0 = $event->data["script"][0];
-        $item1 = $event->data["script"][1];
-
-
-        $event->data["script"][0] = array (
-                                        "type" => "text/javascript",
-                                        "charset" => "utf-8",
-                                        "_data" => "",
-                                        "src" =>  $this->getConf('dojo_url'),
+                                        "href" => $this->getConf('dojo_theme_base')
+                                                  .$this->getConf('dojo_theme')
+                                                  .'/'.$this->getConf('dojo_theme')
+                                                  .'.css',
+                                        "media" => "screen"
         );
 
-        $event->data["script"][1] = array (
+        $event->data["script"][] = array(
+                "type" => "text/javascript",
+                "_data" => "var dojoConfig = {\n".
+                        "  parseOnLoad:true,\n".
+                        "  async:true,\n".
+                        "  baseUrl: '/iocjslib/',\n".
+                        "  tlmSiblingOfDojo: false,\n".
+                        "  locale: \"".hsc($conf["lang"])."\",\n".
+                        "  packages: [\n".
+                        "    {\"name\":\"ioc\",\"location\":\"/iocjslib/ioc\"},\n".
+                        "    {\"name\":\"dojo\",\"location\":\"".$this->getConf('dojo_url_base')."dojo\"},\n".
+                        "    {\"name\":\"dijit\",\"location\":\"".$this->getConf('dojo_url_base')."dijit\"},\n".
+                        "    {\"name\":\"dojox\",\"location\":\"".$this->getConf('dojo_url_base')."dojox\"}\n".
+                        "  ]\n".
+                        "};\n"
+        );
+
+        $event->data["script"][] = array (
                 "type" => "text/javascript",
                 "charset" => "utf-8",
-                "_data" => "require([".
-                                "\"dojo/query\"".
-                                ",\"dojo/NodeList-dom\"".
-                                ",\"dojo/domReady!\"".
-                            "], \n".
+                "_data" => "",
+                "src" =>  $this->getConf('dojo_url'),
+        );
+
+        $event->data["script"][] = array (
+                "type" => "text/javascript",
+                "charset" => "utf-8",
+                "_data" => "require([\"dojo/query\",\"dojo/NodeList-dom\",\"dojo/domReady!\"], \n".
                             "function(query){\n".
-                            "   query('body').addClass(\"".
-                                           $this->getConf('dojo_theme')."\");\n".
+                                "   query('body').addClass(\"".$this->getConf('dojo_theme')."\");\n".
                             "});\n",
         );
-
-        array_unshift($event->data["script"], array(
-                "type" => "text/javascript",
-                "charset" => "utf-8",
-                "_data" => "var dojoConfig = {\n".
-                        "   parseOnLoad:true,\n".
-                        "   async:true,\n".
-                        "   baseUrl: '/iocjslib/',\n".
-                        "   tlmSiblingOfDojo: false,\n".
-                        "   locale: \"".hsc($conf["lang"])."\",\n".
-                        "   packages: [\n".
-                        "       {\"name\":\"ioc\",\"location\":\"/iocjslib/ioc\"},\n".
-                        "       {\"name\":\"dojo\",\"location\":\"".$this->getConf('dojo_url_base')."dojo\"},\n".
-                        "       {\"name\":\"dijit\",\"location\":\"".$this->getConf('dojo_url_base')."dijit\"},\n".
-                        "       {\"name\":\"dojox\",\"location\":\"".$this->getConf('dojo_url_base')."dojox\"}\n".
-                        "   ]\n".
-                        "};\n",));
-        array_unshift($event->data["script"], $item1);
-        array_unshift($event->data["script"], $item0);
     }
+
 }
 
