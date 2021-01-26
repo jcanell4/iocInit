@@ -27,6 +27,4 @@ $conf['projectname_guiesges']="Guies dels estudis GES";
 $conf['projectname_qdoc']="Documents bàsics de qualitat";
 $conf['projectname_convocatoriesoficialseoi']="Convocatòries EOI";
 $conf['projectname_sintesi']="Pla de treball de síntesi d'FP";
-
-
-
+$conf['projectname_prgfploe']="Programació FP LOE";
