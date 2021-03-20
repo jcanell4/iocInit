@@ -11,6 +11,11 @@ require_once(DOKU_INC . 'inc/init.php');
  */
 class WikiGlobalConfig {
 
+    public static function tplIncName() {
+        global $conf;
+        return $conf['template'];
+    }
+    
     public static function tplIncDir() {
         global $conf;
 
