@@ -30,3 +30,4 @@ $conf['projectname_sintesi']="Pla de treball de síntesi d'FP";
 $conf['projectname_prgfploe']="Programació FP LOE";
 $conf['projectname_prgfplogse']="Programació FP LOGSE";
 $conf['projectname_prgfpfct']="Programació FP FCT";
+$conf['projectname_activityutil']="Utilitat per a fer activitats d'aprenentatge";
