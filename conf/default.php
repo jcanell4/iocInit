@@ -24,6 +24,7 @@ $conf['projectname_ptfplogse']="Pla de treball d'FP versió LOGSE";
 $conf['projectname_ptfct']="Pla de treball per la FCT";
 $conf['projectname_manual']="Manuals de l'IOC";
 $conf['projectname_guiesges']="Guies dels estudis GES";
+$conf['projectname_guieseoi']="Guies dels estudis EOI";
 $conf['projectname_qdoc']="Documents bàsics de qualitat";
 $conf['projectname_convocatoriesoficialseoi']="Convocatòries EOI";
 $conf['projectname_sintesi']="Pla de treball de síntesi d'FP";
