@@ -34,3 +34,4 @@ $conf['projectname_prgfpfct']="Programació FP FCT";
 $conf['projectname_activityutil']="Utilitat per a fer activitats d'aprenentatge";
 $conf['projectname_guieseoi']="Guies dels estudis EOI";
 $conf['projectname_btxfinals']="Proves finals Batxillerat";
+$conf['projectname_guieseoianual']="Guies anuals dels estudis EOI";
