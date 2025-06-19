@@ -22,4 +22,5 @@ $meta['autosaveTimer'] = ['numeric'];
 $meta['_projectnames'] = array('fieldset');
 $meta['projectname_manual']=array("string");
 $meta['projectname_ptfploe']=array("string");
+$meta['projectname_ptfploe24']=array("string");
 $meta['projectname_ptfplogse']=array("string");
